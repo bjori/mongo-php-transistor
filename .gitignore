@@ -1,0 +1,14 @@
+tests/*.diff
+tests/*.exp
+tests/*.log
+tests/*.out
+tests/*.php
+tests/*.sh
+
+*.swp
+
+php.ini
+failed.txt
+
+
+run-tests.php
