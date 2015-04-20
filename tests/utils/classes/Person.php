@@ -40,6 +40,17 @@ class Person implements BSON\Persistable {
         $this->addresses[] = $address;
     }
 
+    function removeAddress(Address $address) {
+        foreach($this->getAddresses() as $k => $curr) {
+            if ($curr->getId() == $address->getid()) {
+                unset($this->addresses[$k]);
+                $this->addresses = array_values($this->addresses);
+                return true;
+            }
+        }
+
+        throw new UnderflowException("No Address found: " . $address->getAddresses()->getStreetAddress());
+    }
     function setName($name) {
         return $this->name = $name;
     }
