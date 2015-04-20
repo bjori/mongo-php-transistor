@@ -5,7 +5,7 @@ The new [PHP Driver for MongoDB](10gen-labs/mongo-php-driver-prototype) provides
 two methods to be called when storing the object, and the other when re-constructing it.
 
 This `transistor` trait adds example implementation of the two methods and introduces
-lightweight change tracking. This allows the object to be seemlessly updated as well.
+lightweight change tracking. This allows the object to be seamlessly updated as well.
 
 
 
@@ -52,9 +52,10 @@ $person = findOne(array("username" => "bjori"));
 
 /* Get an instance of the Person object again */
 var_dump($person);
+?>
 ```
 
-Will result in something similar too:
+The above example will output something similar to
 
 ```
 object(Person)#8 (7) {
@@ -97,7 +98,9 @@ $person = findOne(array("username" => "bjori"));
 var_dump($person);
 ?>
 ```
-Will result in something similar too:
+
+The above example will output something similar to
+
 ```
 object(Person)#9 (7) {
   ["_id"]=>
@@ -125,6 +128,7 @@ object(Person)#9 (7) {
 ## Adding embedded objects
 
 ```php
+<?php
 /* Continuing from previous example, $person is instanceof Person */
 
 /* Construct a new Address object */
@@ -136,8 +140,10 @@ update(array("username" => "bjori"), $person);
 
 $person = findOne(array("username" => "bjori"));
 var_dump($person);
+?>
 ```
-Will result in something similar too: (note the Address object)
+
+The above example will output something similar to
 
 ```
 object(Person)#10 (7) {
