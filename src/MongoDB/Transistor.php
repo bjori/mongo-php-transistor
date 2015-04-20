@@ -111,7 +111,7 @@ trait Transistor {
             /* Changed value */
             elseif ($oldData[$k] != $v) {
                 /* Not-empty arrays need to be recursively checked for changes */
-                if (is_array($v) && $oldData[$k]) {
+                if (is_array($v) && $oldData[$k] && $v) {
                     $this->_bsonSerializeRecurs($updated, $v, $oldData[$k], "$keyfix$k.");
                 } else {
                     /* Normal changes in keys can simply be overwritten.
