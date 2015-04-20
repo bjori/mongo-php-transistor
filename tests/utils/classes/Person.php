@@ -44,6 +44,8 @@ class Person implements BSON\Persistable {
         foreach($this->getAddresses() as $k => $curr) {
             if ($curr->getId() == $address->getid()) {
                 unset($this->addresses[$k]);
+
+                /* We need to reindex the PHP array so it starts from 0 again */
                 $this->addresses = array_values($this->addresses);
                 return true;
             }
