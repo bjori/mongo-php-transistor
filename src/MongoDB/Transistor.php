@@ -51,14 +51,20 @@ trait Transistor {
      * Convert the `_created` UTCDateTime stamp to PHP native DateTime object
      */
     function getCreatedDateTime() {
+        if (!$this->_created) {
+            throw new \OutOfBoundsException("No creation time registered yet");
+        }
         return $this->_created->toDateTime();
     }
 
     /**
-     * Cnvert the `_lastModified` UTCDateTime stamp to PHP native DateTime object
+     * Convert the `_lastModified` UTCDateTime stamp to PHP native DateTime object
      * Note: This does not get updated unless the object is loaded again
      */
     function getLastModifiedDateTime() {
+        if (!$this->_lastModified) {
+            throw new \OutOfBoundsException("No updates registered yet");
+        }
         return $this->_lastModified->toDateTime();
     }
 
