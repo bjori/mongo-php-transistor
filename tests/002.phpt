@@ -34,7 +34,12 @@ object(Person)#%d (8) {
   ["addresses"]=>
   array(1) {
     [0]=>
-    object(Address)#%d (4) {
+    object(Address)#%d (%d) {
+      ["_id"]=>
+      object(BSON\ObjectID)#%d (%d) {
+        ["oid"]=>
+        string(24) "%s"
+      }
       ["streetAddress"]=>
       string(11) "Manabraut 4"
       ["city"]=>
@@ -49,7 +54,7 @@ object(Person)#%d (8) {
   ["_lastModified"]=>
   NULL
   ["_created"]=>
-  object(BSON\UTCDatetime)#%d0 (0) {
+  object(BSON\UTCDatetime)#%d (0) {
   }
   ["scratch"]=>
   array(0) {

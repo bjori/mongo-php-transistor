@@ -2,6 +2,7 @@
 class Address implements BSON\Persistable {
     use MongoDB\Transistor;
 
+    protected $_id;
     protected $streetAddress;
     protected $city;
     protected $postalCode;
@@ -11,6 +12,8 @@ class Address implements BSON\Persistable {
         $this->city          = $city;
         $this->postalCode    = $postalCode;
 
+        /* Pregenerate our ObjectID */
+        $this->_id     = new BSON\ObjectID();
     }
 
     function getStreetAddress()  {
@@ -22,6 +25,10 @@ class Address implements BSON\Persistable {
         unset($props["__original"]);
 
         return $props;
+    }
+
+    function getId() {
+        return $this->_id;
     }
 }
 

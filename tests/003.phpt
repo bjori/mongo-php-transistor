@@ -23,7 +23,7 @@ var_dump($person);
 ===DONE===
 <?php exit(0); ?>
 --EXPECTF--
-object(Person)#%d5 (8) {
+object(Person)#%d (%d) {
   ["_id"]=>
   object(BSON\ObjectID)#%d (1) {
     ["oid"]=>
@@ -38,7 +38,12 @@ object(Person)#%d5 (8) {
   ["addresses"]=>
   array(1) {
     [0]=>
-    object(Address)#%d2 (4) {
+    object(Address)#%d (%d) {
+      ["_id"]=>
+      object(BSON\ObjectID)#%d (%d) {
+        ["oid"]=>
+        string(24) "%s"
+      }
       ["streetAddress"]=>
       string(11) "Manabraut 4"
       ["city"]=>
@@ -51,10 +56,10 @@ object(Person)#%d5 (8) {
     }
   }
   ["_lastModified"]=>
-  object(BSON\UTCDatetime)#%d4 (0) {
+  object(BSON\UTCDatetime)#%d (0) {
   }
   ["_created"]=>
-  object(BSON\UTCDatetime)#%d3 (0) {
+  object(BSON\UTCDatetime)#%d (0) {
   }
   ["scratch"]=>
   array(0) {
