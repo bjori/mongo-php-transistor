@@ -20,6 +20,9 @@ class Person implements BSON\Persistable {
         $this->_id     = new BSON\ObjectID();
     }
 
+    function getId() {
+        return $this->_id;
+    }
     function getUsername() {
         return $this->username;
     }
