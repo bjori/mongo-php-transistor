@@ -55,6 +55,9 @@ function def($arr) {
 
 $FILENAME = sys_get_temp_dir() . "/PHONGO-SERVERS.json";
 
+if (!file_exists($FILENAME)) {
+    die("skip Cannot find server list");
+}
 $json = file_get_contents($FILENAME);
 $servers = json_decode($json);
 def($servers);
