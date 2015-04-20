@@ -1,5 +1,5 @@
 --TEST--
-MongoDB\Transistor #005 -- Add element to array, remove another
+MongoDB\Transistor #006 -- Add element to array, remove another
 --SKIPIF--
 <?php require __DIR__ . "/" . "./utils/basic-skipif.inc"; CLEANUP(STANDALONE) ?>
 --FILE--
