@@ -1,5 +1,5 @@
 --TEST--
-MongoDB\Transistor #001 - Simplest insert
+MongoDB\Transistor #001 -- Simplest insert
 --SKIPIF--
 <?php require __DIR__ . "/" . "./utils/basic-skipif.inc"; CLEANUP(STANDALONE) ?>
 --FILE--

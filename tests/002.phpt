@@ -1,5 +1,5 @@
 --TEST--
-MongoDB\Transistor #002 - embedded Persistable object
+MongoDB\Transistor #002 -- Embedded Persistable object
 --SKIPIF--
 <?php require __DIR__ . "/" . "./utils/basic-skipif.inc"; CLEANUP(STANDALONE) ?>
 --FILE--
