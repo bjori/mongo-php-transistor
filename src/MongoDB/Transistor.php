@@ -167,7 +167,7 @@ trait Transistor {
 
         if ($updated) {
             /* Track the last time this person was updated */
-            $updated['$currentDate']["_lastModified"] = array('$type' => "date");
+            $updated['$set']["_lastModified"] = new \BSON\UTCDatetime(microtime(true) * 1000);
 
             return $updated;
         }
