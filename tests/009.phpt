@@ -1,5 +1,7 @@
 --TEST--
 MongoDB\Transistor #009 -- _lastModified is automatically generated & updated
+--INI--
+date.timezone=America/Los_Angeles
 --SKIPIF--
 <?php require __DIR__ . "/" . "./utils/basic-skipif.inc"; CLEANUP(STANDALONE) ?>
 --FILE--
