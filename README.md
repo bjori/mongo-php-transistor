@@ -200,7 +200,7 @@ in the examples.
 ## Performance
 
 Since the actual object (un-)serialization is done by the extension itself there
-is nothing for PHP to do -- the trait itself is under 200 lines of dead code.
+is nothing for PHP to do -- the trait itself is under 200 lines of dead simple code.
 
 
 
