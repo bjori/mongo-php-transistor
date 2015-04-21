@@ -55,7 +55,7 @@ object(Person)#%d (%d) {
       ["postalCode"]=>
       int(200)
       ["_created"]=>
-      object(BSON\UTCDatetime)#18 (0) {
+      object(BSON\UTCDatetime)#%d (0) {
       }
     }
     [1]=>
@@ -89,7 +89,7 @@ object(Person)#%d (%d) {
       ["postalCode"]=>
       int(94301)
       ["_created"]=>
-      object(BSON\UTCDatetime)#24 (0) {
+      object(BSON\UTCDatetime)#%d (0) {
       }
     }
   }
