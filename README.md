@@ -1,7 +1,7 @@
 # mongo-php-transistor
 
 The new [PHP Driver for MongoDB](10gen-labs/mongo-php-driver-prototype) provides a
-[BSON\Persistable](http://php.net/php.net/BSON\Persistable) interface which declares
+[BSON\Persistable](http://php.net/BSON\\Persistable) interface which declares
 two methods to be called when storing the object, and the other when re-constructing it.
 
 This `transistor` trait adds example implementation of the two methods and introduces
@@ -192,8 +192,8 @@ object(Person)#10 (7) {
 The [insert()](tests/utils/tools.inc#L4-L13), [update()](tests/utils/tools.inc#L15-L26)
 and [findOne()](tests/utils/tools.inc#L28-L41) helpers in the example above don't do
 anything other then wrap their respective methods on the
-[MongoDB\Driver\Manager](http://php.net/MongoDB\Driver\Manager) and setting the
-[TypeMap](http://php.net/MongoDB\Driver\Cursor.settypemap], and are only there to reduce error checking needed
+[MongoDB\Driver\Manager](http://php.net/MongoDB\\Driver\\Manager) and setting the
+[TypeMap](http://php.net/MongoDB\\Driver\\Cursor.settypemap), and are only there to reduce error checking needed
 in the examples.
 
 
