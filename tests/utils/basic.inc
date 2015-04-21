@@ -60,6 +60,9 @@ if (!file_exists($FILENAME)) {
 }
 $json = file_get_contents($FILENAME);
 $servers = json_decode($json);
+if (!$servers) {
+    exit("skip Couldn't json_decode(file_get_contents($FILENAME));");
+}
 def($servers);
 
 $consts = array(
