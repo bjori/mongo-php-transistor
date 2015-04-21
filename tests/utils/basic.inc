@@ -41,7 +41,7 @@ function CLEANUP($uri, $dbname = DATABASE_NAME, $collname = COLLECTION_NAME) {
             } while (0);
         }
     } catch(Exception $e) {
-        echo "skip (cleanup)" . $e->getCode(), ": ", $e->getMessage();
+        echo "skip (cleanup): '$uri';" . $e->getCode(), ": ", $e->getMessage();
         exit(1);
     }
 }
