@@ -9,6 +9,6 @@ tests/*.sh
 
 php.ini
 failed.txt
-
+composer.phar
 
 run-tests.php

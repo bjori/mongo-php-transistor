@@ -1,0 +1,20 @@
+{
+    "name": "mongodb/transistor",
+    "description": "Simple MongoDB Object<->Document Mapper",
+    "keywords": [
+        "database", "driver", "mongodb", "persistence", "orm", "odm"
+    ],
+    "homepage": "https://github.com/bjori/mongo-php-transistor",
+    "license": "BSD 2-Clause",
+    "authors": [
+        { "name": "Hannes Magnusson", "email": "bjori@mongodb.com" }
+    ],
+    "require": {
+        "ext-mongodb": ">=0.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MongoDB\\": "src\/"
+        }
+    }
+}
