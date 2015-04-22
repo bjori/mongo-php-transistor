@@ -2,9 +2,10 @@
 
 [![Build Status](https://api.travis-ci.org/bjori/mongo-php-transistor.png?branch=master)](https://travis-ci.org/bjori/mongo-php-transistor)
 
-The new [PHP Driver for MongoDB](10gen-labs/mongo-php-driver-prototype) provides a
-[BSON\Persistable](http://php.net/BSON\\Persistable) interface which declares
-two methods to be called when storing the object, and the other when re-constructing it.
+The new [PHP Driver for MongoDB](http://github.com/10gen-labs/mongo-php-driver-prototype)
+provides a [BSON\Persistable](http://php.net/BSON\\Persistable) interface which
+declares two methods to be called when storing the object, and the other when
+re-constructing it.
 
 This `transistor` trait adds example implementation of the two methods and introduces
 lightweight change tracking. This allows the object to be seamlessly updated as well.
