@@ -36,8 +36,9 @@ $person->addAddress($address2);
 $person->addAddress($address3);
 
 sleep(1);
-$person = update(array("username" => "bjori"), $person);
+$personFromDb = update(array("username" => "bjori"), $person);
 isDatetimeSame($person->getLastModifiedDateTime(), $curr);
+isDatetimeSame($personFromDb->getLastModifiedDateTime(), $curr);
 
 ?>
 ===DONE===
@@ -45,5 +46,6 @@ isDatetimeSame($person->getLastModifiedDateTime(), $curr);
 --EXPECTF--
 No updates registered yet
 OK -- %s
+OK -- off by %d second :)
 OK -- off by %d second :)
 ===DONE===

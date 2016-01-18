@@ -12,9 +12,8 @@
  * Change tracking is naive and done by comparing a copy of the original state of the
  * object to its current state. I am sure there are dragons.
  *
- * The _lastModified property will be magically updated in the database on success,
- * but will not be updated in the current object.
- * The _created property will however be accessible property after the initial insert.
+ * The _created property will be accessible after the initial insert.
+ * The _lastModified property will be accessible after the first update.
  *
  * Two self-explainging convenience methods are defined:
  *  - DateTime function getCreatedDateTime()
@@ -166,8 +165,11 @@ trait Transistor {
         $this->_bsonSerializeRecurs($updated, $props, $this->__original, "");
 
         if ($updated) {
-            /* Track the last time this person was updated */
-            $updated['$set']["_lastModified"] = new BSON\UTCDatetime(microtime(true) * 1000);
+            /* Track the last time this document was updated */
+            $datetime = new BSON\UTCDatetime(microtime(true) * 1000);
+            $updated['$set']["_lastModified"] = $datetime;
+            $this->_lastModified = $datetime;
+            $this->__original["_lastModified"] = $datetime;
 
             return $updated;
         }
