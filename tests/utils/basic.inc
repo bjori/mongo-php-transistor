@@ -34,7 +34,7 @@ function CLEANUP($uri, $dbname = DATABASE_NAME, $collname = COLLECTION_NAME) {
         } catch(Exception $e) {
             do {
                 /* ns not found */
-                if ($e->getCode() == 59) {
+                if ($e->getCode() == 26) {
                     continue;
                 }
                 throw $e;
