@@ -26,7 +26,7 @@ var_dump($person);
 --EXPECTF--
 object(Person)#%d (%d) {
   ["_id"]=>
-  object(BSON\ObjectID)#%d (%d) {
+  object(MongoDB\BSON\ObjectID)#%d (%d) {
     ["oid"]=>
     string(24) "%s"
   }
@@ -39,9 +39,9 @@ object(Person)#%d (%d) {
   ["addresses"]=>
   array(%d) {
     [0]=>
-    object(Address)#11 (5) {
+    object(Address)#%d (5) {
       ["_id"]=>
-      object(BSON\ObjectID)#%d (%d) {
+      object(MongoDB\BSON\ObjectID)#%d (%d) {
         ["oid"]=>
         string(24) "%s"
       }
@@ -52,14 +52,18 @@ object(Person)#%d (%d) {
       ["postalCode"]=>
       int(200)
       ["_created"]=>
-      object(BSON\UTCDatetime)#10 (0) {
+      object(MongoDB\BSON\UTCDateTime)#%d (1) {
+        ["milliseconds"]=>
+        int(%d)
       }
     }
   }
   ["_lastModified"]=>
   NULL
   ["_created"]=>
-  object(BSON\UTCDatetime)#%d (%d) {
+  object(MongoDB\BSON\UTCDateTime)#%d (%d) {
+    ["milliseconds"]=>
+    int(%d)
   }
   ["scratch"]=>
   array(%d) {
@@ -67,7 +71,7 @@ object(Person)#%d (%d) {
 }
 object(Person)#%d (%d) {
   ["_id"]=>
-  object(BSON\ObjectID)#%d (%d) {
+  object(MongoDB\BSON\ObjectID)#%d (%d) {
     ["oid"]=>
     string(24) "%s"
   }
@@ -81,10 +85,14 @@ object(Person)#%d (%d) {
   array(0) {
   }
   ["_lastModified"]=>
-  object(BSON\UTCDatetime)#%d (%d) {
+  object(MongoDB\BSON\UTCDateTime)#%d (%d) {
+    ["milliseconds"]=>
+    int(%d)
   }
   ["_created"]=>
-  object(BSON\UTCDatetime)#%d (%d) {
+  object(MongoDB\BSON\UTCDateTime)#%d (%d) {
+    ["milliseconds"]=>
+    int(%d)
   }
   ["scratch"]=>
   array(%d) {

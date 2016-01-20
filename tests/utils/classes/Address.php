@@ -1,5 +1,5 @@
 <?php
-class Address implements BSON\Persistable {
+class Address implements MongoDB\BSON\Persistable {
     use MongoDB\Transistor;
 
     protected $_id;
@@ -13,7 +13,7 @@ class Address implements BSON\Persistable {
         $this->postalCode    = $postalCode;
 
         /* Pregenerate our ObjectID */
-        $this->_id     = new BSON\ObjectID();
+        $this->_id     = new MongoDB\BSON\ObjectID();
     }
 
     function getStreetAddress()  {
@@ -31,4 +31,3 @@ class Address implements BSON\Persistable {
         return $this->_id;
     }
 }
-
