@@ -23,6 +23,7 @@ class Address implements MongoDB\BSON\Persistable {
         $props = get_object_vars($this);
 
         unset($props["__original"]);
+        unset($props["__pclass"]);
 
         return $props;
     }
