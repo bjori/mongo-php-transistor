@@ -1,22 +1,26 @@
 <?php
 
 
-function insert(BSON\Persistable $object) {
+function insert(MongoDB\BSON\Persistable $object) {
     global $_manager;
 
     try {
-        $_manager->executeInsert(NS, $object);
+        $bulk = new MongoDB\Driver\BulkWrite;
+        $bulk->insert($object);
+        $_manager->executeBulkWrite(NS, $bulk);
     } catch(Exception $e) {
         echo $e->getMessage();
         echo $e->getTraceAsString();
     }
 }
 
-function update(array $array = array(), BSON\Persistable $object) {
+function update(array $array = array(), MongoDB\BSON\Persistable $object) {
     global $_manager;
 
     try {
-        $_manager->executeUpdate(NS, $array, $object);
+        $bulk = new MongoDB\Driver\BulkWrite;
+        $bulk->update($array, $object);
+        $_manager->executeBulkWrite(NS, $bulk);
     } catch(Exception $e) {
         echo $e->getMessage();
         echo $e->getTraceAsString();
@@ -30,7 +34,6 @@ function findOne(array $array = array()) {
 
 
     $result = $_manager->executeQuery(NS, new MongoDB\Driver\Query($array));
-    $result->setTypeMap(array("document" => "array"));
 
     $objects = $result->toArray();
     if ($objects) {
