@@ -19,10 +19,8 @@ failed.txt:
 
 
 $(EXTDIR)/mongodb.so:
-	pecl install mongodb-alpha
+	pecl install mongodb
 
 
 $(TMPDIR)/PHONGO-SERVERS.json:
 	echo '{"STANDALONE": "mongodb:\/\/127.0.0.1:27017"}' > $(TMPDIR)/PHONGO-SERVERS.json
-
-
