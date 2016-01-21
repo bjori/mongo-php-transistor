@@ -1,5 +1,5 @@
 <?php
-class Person implements BSON\Persistable {
+class Person implements MongoDB\BSON\Persistable {
     use MongoDB\Transistor;
 
     protected $_id;
@@ -17,7 +17,7 @@ class Person implements BSON\Persistable {
         $this->setName($name);
 
         /* Pregenerate our ObjectID */
-        $this->_id     = new BSON\ObjectID();
+        $this->_id     = new MongoDB\BSON\ObjectID();
     }
 
     function getId() {
@@ -64,6 +64,7 @@ class Person implements BSON\Persistable {
         $props = get_object_vars($this);
 
         unset($props["__original"]);
+        unset($props["__pclass"]);
 
         return $props;
     }
@@ -72,4 +73,3 @@ class Person implements BSON\Persistable {
         $this->scratch = $scratch;
     }
 }
-

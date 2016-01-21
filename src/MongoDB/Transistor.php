@@ -1,7 +1,7 @@
 <?php
 /**
  * A trait that implements the pecl/mongodb interface BSON\Persistable
- * -- traits however cannot declare that they implement interfaces, so the 
+ * -- traits however cannot declare that they implement interfaces, so the
  * class the uses this trait wil need to explicitly 'implements BSON\Persistable'.
  *
  * This trait takes all properties of the using class and stores them in one MongoDB
@@ -35,7 +35,7 @@
  *
  * It is recommended, for this trait to work appropriately to change the typemapping
  * to always encode BSON documents as arrays. This is done as follows:
- * 
+ *
  * $result = $MongoDB\Manager->executeQuery(....);
  * $result->setTypeMap(array("document" => "array"));
  * foreach($result as $object) {
@@ -156,7 +156,7 @@ trait Transistor {
         /* If __original doesn't exist, this is a fresh object that needs to be inserted */
         if (empty($this->__original)) {
             /* Generate the `_created` timestamp */
-            $props["_created"] = new \BSON\UTCDatetime(microtime(true) * 1000);
+            $props["_created"] = new BSON\UTCDatetime(microtime(true) * 1000);
             return $props;
         }
 
@@ -167,7 +167,7 @@ trait Transistor {
 
         if ($updated) {
             /* Track the last time this person was updated */
-            $updated['$set']["_lastModified"] = new \BSON\UTCDatetime(microtime(true) * 1000);
+            $updated['$set']["_lastModified"] = new BSON\UTCDatetime(microtime(true) * 1000);
 
             return $updated;
         }
@@ -177,4 +177,3 @@ trait Transistor {
     }
 
 }
-
