@@ -150,6 +150,9 @@ trait Transistor {
      * Automatically updates the `_lastModified` property in the document.
      */
     function bsonSerialize() {
+        /* temporary workaround for https://jira.mongodb.org/browse/PHPC-545 */
+        $this->__pclass = new BSON\Binary(get_class($this), BSON\Binary::TYPE_USER_DEFINED);
+
         $props = $this->__getObjectData();
 
         /* If __original doesn't exist, this is a fresh object that needs to be inserted */
