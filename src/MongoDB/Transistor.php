@@ -150,7 +150,7 @@ trait Transistor {
      * Automatically updates the `_lastModified` property in the document.
      */
     function bsonSerialize() {
-        // it makes sure that this instance will be saved as current class
+        /* temporary workaround for https://jira.mongodb.org/browse/PHPC-545 */
         $this->__pclass = new BSON\Binary(get_class($this), BSON\Binary::TYPE_USER_DEFINED);
 
         $props = $this->__getObjectData();
