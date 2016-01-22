@@ -2,9 +2,9 @@
 
 [![Build Status](https://api.travis-ci.org/bjori/mongo-php-transistor.png?branch=master)](https://travis-ci.org/bjori/mongo-php-transistor)
 
-The new [PHP Driver for MongoDB](http://github.com/10gen-labs/mongo-php-driver-prototype)
-provides a [BSON\Persistable](http://php.net/BSON\\Persistable) interface which
-declares two methods to be called when storing the object, and the other when
+The new [PHP Driver for MongoDB](http://github.com/mongodb/mongo-php-driver)
+provides a [MongoDB\BSON\Persistable](http://php.net/mongodb_bson_persistable) interface
+which declares two methods to be called when storing the object, and the other when
 re-constructing it.
 
 This `transistor` trait adds example implementation of the two methods and introduces
@@ -16,7 +16,7 @@ lightweight change tracking. This allows the object to be seamlessly updated as 
 
 ```php
 <?php
-class Person implements BSON\Persistable {
+class Person implements MongoDB\BSON\Persistable {
     use MongoDB\Transistor;
     protected $_id;
     protected $username;
@@ -27,7 +27,7 @@ class Person implements BSON\Persistable {
     protected $_created;
 }
 
-class Address implements BSON\Persistable {
+class Address implements MongoDB\BSON\Persistable {
     use MongoDB\Transistor;
     protected $_id;
     protected $streetAddress;
@@ -38,7 +38,7 @@ class Address implements BSON\Persistable {
 ```
 See [Person.php](tests/utils/classes/Person.php) and [Address.php](tests/utils/classes/Address.php) for
 the full implementation of these example classes -- although this is really it. No annotations or anything.
-`implements BSON\Persistable` and `use MongoDB\Transistor` is the magic.
+`implements MongoDB\BSON\Persistable` and `use MongoDB\Transistor` is the magic.
 
 ## Simple usage
 
@@ -63,7 +63,7 @@ The above example will output something similar to
 ```
 object(Person)#8 (7) {
   ["_id"]=>
-  object(BSON\ObjectID)#4 (1) {
+  object(MongoDB\BSON\ObjectID)#4 (1) {
     ["oid"]=>
     string(24) "553586e2bd21b971774b7da1"
   }
@@ -79,7 +79,7 @@ object(Person)#8 (7) {
   ["_lastModified"]=>
   NULL
   ["_created"]=>
-  object(BSON\UTCDatetime)#7 (0) {
+  object(MongoDB\BSON\UTCDatetime)#7 (0) {
   }
 }
 ```
@@ -107,7 +107,7 @@ The above example will output something similar to
 ```
 object(Person)#9 (7) {
   ["_id"]=>
-  object(BSON\ObjectID)#4 (1) {
+  object(MongoDB\BSON\ObjectID)#4 (1) {
     ["oid"]=>
     string(24) "553586e2bd21b971774b7da1"
   }
@@ -123,7 +123,7 @@ object(Person)#9 (7) {
   ["_lastModified"]=>
   NULL
   ["_created"]=>
-  object(BSON\UTCDatetime)#7 (0) {
+  object(MongoDB\BSON\UTCDatetime)#7 (0) {
   }
 }
 ```
@@ -151,7 +151,7 @@ The above example will output something similar to
 ```
 object(Person)#10 (7) {
   ["_id"]=>
-  object(BSON\ObjectID)#4 (1) {
+  object(MongoDB\BSON\ObjectID)#4 (1) {
     ["oid"]=>
     string(24) "553586e2bd21b971774b7da1"
   }
@@ -166,7 +166,7 @@ object(Person)#10 (7) {
     [0]=>
     object(Address)#%d (%d) {
       ["_id"]=>
-      object(BSON\ObjectID)#%d (%d) {
+      object(MongoDB\BSON\ObjectID)#%d (%d) {
         ["oid"]=>
         string(24) "%s"
       }
@@ -177,14 +177,14 @@ object(Person)#10 (7) {
       ["postalCode"]=>
       int(200)
       ["_created"]=>
-      object(BSON\UTCDatetime)#%d (0) {
+      object(MongoDB\BSON\UTCDatetime)#%d (0) {
       }
     }
   }
   ["_lastModified"]=>
   NULL
   ["_created"]=>
-  object(BSON\UTCDatetime)#7 (0) {
+  object(MongoDB\BSON\UTCDatetime)#7 (0) {
   }
 }
 ```
@@ -195,8 +195,8 @@ object(Person)#10 (7) {
 The [insert()](tests/utils/tools.inc#L4-L13), [update()](tests/utils/tools.inc#L15-L26)
 and [findOne()](tests/utils/tools.inc#L28-L41) helpers in the example above don't do
 anything other then wrap their respective methods on the
-[MongoDB\Driver\Manager](http://php.net/MongoDB\\Driver\\Manager) and setting the
-[TypeMap](http://php.net/MongoDB\\Driver\\Cursor.settypemap), and are only there to reduce error checking needed
+[MongoDB\Driver\Manager](http://php.net/MongoDB_Driver_Manager) and setting the
+[TypeMap](http://php.net/MongoDB_Driver_Cursor.settypemap), and are only there to reduce error checking needed
 in the examples.
 
 
