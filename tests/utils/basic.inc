@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/" . "./../../src/MongoDB/Transistor.php";
+require __DIR__ . "/" . "./../../src/Transistor.php";
 require __DIR__ . "/" . "./classes/Address.php";
 require __DIR__ . "/" . "./classes/Person.php";
 require __DIR__ . "/" . "./tools.inc";
