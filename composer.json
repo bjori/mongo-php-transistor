@@ -10,11 +10,11 @@
         { "name": "Hannes Magnusson", "email": "bjori@mongodb.com" }
     ],
     "require": {
-        "ext-mongodb": ">=0.5"
+        "ext-mongodb": "^1.1.0"
     },
     "autoload": {
         "psr-4": {
-            "MongoDB\\": "src\/"
+            "MongoDB\\": "src/"
         }
     }
 }
