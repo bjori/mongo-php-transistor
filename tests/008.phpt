@@ -1,5 +1,5 @@
 --TEST--
-MongoDB\Transistor #008 -- _created is now
+MongoDB\Transistor #008 -- _created is automatically generated
 --INI--
 date.timezone=America/Los_Angeles
 --SKIPIF--
@@ -21,11 +21,14 @@ try {
 }
 
 insert($person);
-$person = findOne(array("username" => "bjori"));
+sleep(1);
+$personFromDb = findOne(array("username" => "bjori"));
+$dtFromDb = $personFromDb->getCreatedDateTime();
 $dt = $person->getCreatedDateTime();
 $curr = new DateTime("now");
 
-isDatetimeSame($dt, $curr);
+isDatetimeSame($dtFromDb, $curr);
+isDatetimeSame($dtFromDb, $dt);
 
 
 ?>
@@ -33,5 +36,6 @@ isDatetimeSame($dt, $curr);
 <?php exit(0); ?>
 --EXPECTF--
 No creation time registered yet
-OK -- %s
+OK -- off by %d second :)
+OK -- no bump
 ===DONE===
